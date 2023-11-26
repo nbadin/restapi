@@ -1,8 +1,8 @@
 up:
 	vendor/bin/sail up -d
 
-sail:
-	vendor/bin/sail $(a)
+migrate:
+	vendor/bin/sail artisan migrate --seed
 
 down:
 	 vendor/bin/sail down
