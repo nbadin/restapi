@@ -42,10 +42,6 @@ class UserController extends Controller
      */
     public function show(User $user)
     {
-        if ($user->avatar) {
-            $user->avatar = Storage::disk('public')->url($user->avatar);
-        }
-
         return UserResource::make($user);
     }
 

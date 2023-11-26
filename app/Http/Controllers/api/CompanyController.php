@@ -44,10 +44,6 @@ class CompanyController extends Controller
      */
     public function show(Company $company)
     {
-        if ($company->logo) {
-            $company->logo = Storage::disk('public')->url($company->logo);
-        }
-
         return CompanyResource::make($company);
     }
 

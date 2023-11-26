@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Company extends Model
 {
@@ -29,13 +30,15 @@ class Company extends Model
 
         static::creating(function ($company) {
             if ($company->logo) {
-                $company->logo = 'company/logo/' . basename($company->logo->store("company/logo/", "public"));
+                $path = 'company/logo/' . basename($company->logo->store("company/logo/", "public"));
+                $company->logo = Storage::disk('public')->url($path);
             }
         });
 
         static::updating(function ($company) {
             if ($company->logo) {
-                $company->logo = 'company/logo/' . basename($company->logo->store("company/logo/", "public"));
+                $path = 'company/logo/' . basename($company->logo->store("company/logo/", "public"));
+                $company->logo = Storage::disk('public')->url($path);
             }
         });
     }
