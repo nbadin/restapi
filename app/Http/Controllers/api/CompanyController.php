@@ -15,6 +15,8 @@ class CompanyController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -23,6 +25,9 @@ class CompanyController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param StoreCompanyRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(StoreCompanyRequest $request)
     {
@@ -33,6 +38,9 @@ class CompanyController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param Company $company
+     * @return CompanyResource
      */
     public function show(Company $company)
     {
@@ -45,6 +53,10 @@ class CompanyController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param UpdateCompanyRequest $request
+     * @param Company $company
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(UpdateCompanyRequest $request, Company $company)
     {
@@ -55,6 +67,9 @@ class CompanyController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param Company|null $company
+     * @return \Illuminate\Http\Response
      */
     public function destroy(Company|null $company = null)
     {
@@ -65,8 +80,11 @@ class CompanyController extends Controller
         return response()->noContent()->setStatusCode(204);
     }
 
-    /*
+    /**
      * Return a comments of the company.
+     *
+     * @param $companyId
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function comments($companyId)
     {
@@ -75,8 +93,11 @@ class CompanyController extends Controller
         return CommentResource::collection($company->comments);
     }
 
-    /*
+    /**
      * Return a grade of the company
+     *
+     * @param $companyId
+     * @return CompanyGradeResouce
      */
     public function grade($companyId)
     {
@@ -85,8 +106,10 @@ class CompanyController extends Controller
         return CompanyGradeResouce::make($company);
     }
 
-    /*
+    /**
      * Return top 10 of the company
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function top()
     {

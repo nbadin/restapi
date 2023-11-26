@@ -9,6 +9,9 @@ class User extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'firstname',
         'lastname',
@@ -16,8 +19,10 @@ class User extends Model
         'avatar',
     ];
 
-    /*
+    /**
      * Hook to save avatar
+     *
+     * @return void
      */
     protected static function boot()
     {

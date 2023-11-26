@@ -9,6 +9,9 @@ class Comment extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'user_id',
         'company_id',
@@ -16,8 +19,12 @@ class Comment extends Model
         'grade',
     ];
 
-    /*
+    /**
      * Scope a query to only include comments for a specific company.
+     *
+     * @param $query
+     * @param $companyId
+     * @return mixed
      */
     public function scopeByCompanyId($query, $companyId)
     {

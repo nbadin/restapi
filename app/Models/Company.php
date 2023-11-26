@@ -9,14 +9,19 @@ class Company extends Model
 {
     use HasFactory;
 
+    /**
+     * @var string[]
+     */
     protected $fillable = [
         'name',
         'description',
         'logo',
     ];
 
-    /*
+    /**
      * Hook to save logo
+     *
+     * @return void
      */
     protected static function boot()
     {
@@ -35,16 +40,20 @@ class Company extends Model
         });
     }
 
-    /*
+    /**
      * Returns comments to the company
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
     public function comments()
     {
         return $this->hasMany(Comment::class, 'company_id');
     }
 
-    /*
+    /**
      * Returns the company's grade
+     *
+     * @return float|int
      */
     public function get_grade()
     {
@@ -59,6 +68,8 @@ class Company extends Model
 
     /**
      * Returns of top 10 companies
+     *
+     * @return mixed
      */
     public static function getTop()
     {

@@ -12,6 +12,8 @@ class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
      */
     public function index()
     {
@@ -21,6 +23,9 @@ class UserController extends Controller
 
     /**
      * Store a newly created resource in storage.
+     *
+     * @param StoreUserRequest $request
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(StoreUserRequest $request)
     {
@@ -31,6 +36,9 @@ class UserController extends Controller
 
     /**
      * Display the specified resource.
+     *
+     * @param User $user
+     * @return UserResource
      */
     public function show(User $user)
     {
@@ -43,6 +51,10 @@ class UserController extends Controller
 
     /**
      * Update the specified resource in storage.
+     *
+     * @param UpdateUserRequest $request
+     * @param User $user
+     * @return \Illuminate\Http\JsonResponse
      */
     public function update(UpdateUserRequest $request, User $user)
     {
@@ -53,6 +65,9 @@ class UserController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     *
+     * @param User $user
+     * @return \Illuminate\Http\Response
      */
     public function destroy(User $user)
     {
