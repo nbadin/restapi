@@ -21,21 +21,4 @@ class CompanyResource extends JsonResource
             'logo' => $this->logo
         ];
     }
-
-    /**
-     * Add additional data to the response.
-     *
-     * @param \Illuminate\Http\Request $request
-     * @return array
-     */
-    public function with($request)
-    {
-        if ($this->resource === null) {
-            return [
-                'message' => 'Company not found',
-            ];
-        }
-
-        return [];
-    }
 }

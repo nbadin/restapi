@@ -16,6 +16,9 @@ class User extends Model
         'avatar',
     ];
 
+    /*
+     * Hook to save avatar
+     */
     protected static function boot()
     {
         parent::boot();

@@ -29,6 +29,14 @@ class Handler extends ExceptionHandler
         });
     }
 
+    /**
+     * Returns the message in json format instead of html page
+     *
+     * @param $request
+     * @param Throwable $exception
+     * @return \Illuminate\Http\JsonResponse|\Illuminate\Http\RedirectResponse|\Illuminate\Http\Response|\Symfony\Component\HttpFoundation\Response
+     * @throws Throwable
+     */
     public function render($request, Throwable $exception)
     {
         if ($exception instanceof ModelNotFoundException) {

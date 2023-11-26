@@ -65,6 +65,9 @@ class CompanyController extends Controller
         return response()->noContent()->setStatusCode(204);
     }
 
+    /*
+     * Return a comments of the company.
+     */
     public function comments($companyId)
     {
         $company = Company::findOrFail($companyId);
@@ -72,6 +75,9 @@ class CompanyController extends Controller
         return CommentResource::collection($company->comments);
     }
 
+    /*
+     * Return a grade of the company
+     */
     public function grade($companyId)
     {
         $company = Company::findOrFail($companyId);
@@ -79,6 +85,9 @@ class CompanyController extends Controller
         return CompanyGradeResouce::make($company);
     }
 
+    /*
+     * Return top 10 of the company
+     */
     public function top()
     {
         $companies = Company::getTop();

@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Http\Resources\CommentResource;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,6 +15,9 @@ class Company extends Model
         'logo',
     ];
 
+    /*
+     * Hook to save logo
+     */
     protected static function boot()
     {
         parent::boot();
@@ -33,11 +35,17 @@ class Company extends Model
         });
     }
 
+    /*
+     * Returns comments to the company
+     */
     public function comments()
     {
         return $this->hasMany(Comment::class, 'company_id');
     }
 
+    /*
+     * Returns the company's grade
+     */
     public function get_grade()
     {
         $comments = $this->comments();
@@ -49,6 +57,9 @@ class Company extends Model
         return 0;
     }
 
+    /**
+     * Returns of top 10 companies
+     */
     public static function getTop()
     {
         return Company::withSum('comments', 'grade')

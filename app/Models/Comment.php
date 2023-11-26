@@ -16,6 +16,9 @@ class Comment extends Model
         'grade',
     ];
 
+    /*
+     * Scope a query to only include comments for a specific company.
+     */
     public function scopeByCompanyId($query, $companyId)
     {
         return $query->where('company_id', $companyId);
