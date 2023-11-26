@@ -7,8 +7,7 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
-use App\Models\Company;
-use Illuminate\Http\Request;
+
 
 class CommentController extends Controller
 {
