@@ -18,8 +18,8 @@ class CommentFactory extends Factory
     public function definition(): array
     {
         return [
-            'user_id' => \App\Models\User::inRandomOrder()->first()->id,
-            'company_id' => \App\Models\Company::inRandomOrder()->first()->id,
+            'user_id' => User::inRandomOrder()->first()->id,
+            'company_id' => Company::inRandomOrder()->first()->id,
             'message' => $this->faker->sentence,
             'grade' => $this->faker->numberBetween(1, 10),
         ];
