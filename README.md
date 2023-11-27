@@ -107,7 +107,7 @@ _Вывод_
 ```
 
 ### Обновление пользователя
-_Используйте метод POST и передачу аргумента _method="PUT"_
+*Используйте метод POST и передачу аргумента _method="PUT"*
 
 ```shell
 curl --location --request POST 'http://localhost/api/users/39' \
@@ -301,7 +301,7 @@ _Вывод_
 
 ### Обновление компании
 
-_Используйте метод POST и передачу аргумента _method="PUT"_
+*Используйте метод POST и передачу аргумента _method="PUT"*
 
 ```shell
 curl --location --request POST 'http://localhost/api/companies/4' \
