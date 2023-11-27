@@ -22,7 +22,7 @@ class UpdateCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'string|min:3|max:40|unique:companies',
+            'name' => 'string|min:3|max:39',
             'description' => 'string|min:150|max:400',
             'logo' => 'nullable|image|mimes:png|max:3072',
         ];

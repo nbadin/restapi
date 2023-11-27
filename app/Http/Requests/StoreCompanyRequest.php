@@ -22,7 +22,7 @@ class StoreCompanyRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => 'required|string|min:3|max:40|unique:companies',
+            'name' => 'required|string|min:3|max:39|unique:companies',
             'description' => 'required|string|min:150|max:400',
             'logo' => 'nullable|image|mimes:png|max:3072',
         ];

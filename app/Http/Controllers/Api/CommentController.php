@@ -30,9 +30,9 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        Comment::create($request->validated());
+        $comment = Comment::create($request->validated());
 
-        return response()->json(['message' => 'Comment created successfully'], 201);
+        return CommentResource::make($comment)->response()->setStatusCode(201);
     }
 
     /**
