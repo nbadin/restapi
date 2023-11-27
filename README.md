@@ -1,6 +1,6 @@
 ## Гайд
 
-Ниже вы найдете примеры использования Curl, но вы можете использовать это api с другой технологией.
+Ниже вы найдете примеры с использованием Curl, но вы можете использовать это api с другой технологией.
 
 ## Пользователи
 
@@ -107,6 +107,8 @@ _Вывод_
 ```
 
 ### Обновление пользователя
+_Используйте метод POST и передачу аргумента _method="PUT"_
+
 ```shell
 curl --location --request POST 'http://localhost/api/users/39' \
 --header 'Accept: application/json' \
@@ -298,12 +300,15 @@ _Вывод_
 ```
 
 ### Обновление компании
+
+_Используйте метод POST и передачу аргумента _method="PUT"_
+
 ```shell
 curl --location --request POST 'http://localhost/api/companies/4' \
 --header 'Accept: application/json' \
 --form 'name="Samsung"' \
 --form 'logo=@"/path/to/logo.png"' \
---form '_method="patch"'
+--form '_method="put"'
 ```
 
 _Вывод_
@@ -429,7 +434,7 @@ _Вывод_
 }
 ```
 
-### Удаление пользователя
+### Удаление комментария
 ```shell
 curl --location --request DELETE 'http://localhost/api/comments/102'
 ```
